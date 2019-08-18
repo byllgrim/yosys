@@ -467,6 +467,7 @@ delay:
 
 wire_type:
 	{
+printf("PARSING A WIRE TYPE\n");
 		astbuf3 = new AstNode(AST_WIRE);
 		current_wire_rand = false;
 		current_wire_const = false;
@@ -529,6 +530,11 @@ wire_type_token:
 	} |
 	TOK_CONST {
 		current_wire_const = true;
+	} |
+	TOK_ENUM {
+printf("I FOUND AN ENUM\n");
+fflush(stdout);
+exit(1);
 	};
 
 non_opt_range:
